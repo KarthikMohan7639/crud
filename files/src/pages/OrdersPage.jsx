@@ -78,7 +78,7 @@ export default function OrdersPage() {
 
   return (
     <Card title="Orders">
-      <Table columns={columns} dataSource={filtered} rowKey="key" pagination={{ pageSize: 6 }} />
+      <Table className="tab" columns={columns} dataSource={filtered} rowKey="key" pagination={{ pageSize: 6 }} />
       <CrudModal open={open} mode={mode} onCancel={() => setOpen(false)} onSave={handleSave} record={current} fields={fields} />
     </Card>
   )

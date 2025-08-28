@@ -30,7 +30,7 @@ export default function AppLayout() {
       </Sider>
 
       <Layout>
-        <Header style={{ background: '#fff', padding: '8px 16px', display: 'flex', gap: 12, alignItems: 'center' }}>
+        <Header style={{ background: 'lightgreen', padding: '8px 16px', display: 'flex', gap: 12, alignItems: 'center' }}>
           <Input.Search placeholder="Search..." allowClear value={search} onChange={(e) => setSearch(e.target.value)} style={{ maxWidth: 360 }} />
           <div style={{ flex: 1 }} />
           {/* We pass search via Outlet context */}
