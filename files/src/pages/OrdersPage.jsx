@@ -37,13 +37,14 @@ export default function OrdersPage() {
   }, [rows, search])
 
   const columns = [
-    { title: 'ORDER DATE', dataIndex: 'orderDate' },
-    { title: 'APPELLANT NUMBER', dataIndex: 'appellantNumber' },
-    { title: 'APPEAL YEAR', dataIndex: 'appealYear' },
-    { title: 'APPELLANT NAME', dataIndex: 'appellantName' },
+    { title: 'ORDER DATE', dataIndex: 'orderDate', onHeaderCell: () => ({ style: { backgroundColor: 'lightblue', color: 'black' } }) },
+    { title: 'APPELLANT NUMBER', dataIndex: 'appellantNumber', onHeaderCell: () => ({ style: { backgroundColor: 'lightblue', color: 'black' } }) },
+    { title: 'APPEAL YEAR', dataIndex: 'appealYear', onHeaderCell: () => ({ style: { backgroundColor: 'lightblue', color: 'black' } }) },
+    { title: 'APPELLANT NAME', dataIndex: 'appellantName', onHeaderCell: () => ({ style: { backgroundColor: 'lightblue', color: 'black' } }) },
     {
       title: 'ACTION',
       key: 'action',
+      onHeaderCell: () => ({ style: { backgroundColor: 'lightblue', color: 'black' } }),
       render: (_, r) => (
         <Space>
           <Button onClick={() => { setMode('view'); setCurrent(r); setOpen(true) }}>View</Button>
@@ -78,7 +79,7 @@ export default function OrdersPage() {
 
   return (
     <Card title="Orders">
-      <Table className="tab" columns={columns} dataSource={filtered} rowKey="key" pagination={{ pageSize: 6 }} />
+      <Table className="tab" columns={columns} dataSource={filtered} rowKey="key" pagination={{ pageSize: 6 }} scroll={{ x: true }} />
       <CrudModal open={open} mode={mode} onCancel={() => setOpen(false)} onSave={handleSave} record={current} fields={fields} />
     </Card>
   )

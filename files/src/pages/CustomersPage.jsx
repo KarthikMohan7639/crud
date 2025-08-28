@@ -36,11 +36,11 @@ export default function CustomersPage() {
   }, [rows, search])
 
   const columns = [
-    { title: 'NAME', dataIndex: 'name' },
-    { title: 'EMAIL', dataIndex: 'email' },
-    { title: 'PHONE', dataIndex: 'phone' },
+    { title: 'NAME', dataIndex: 'name', onHeaderCell: () => ({ style: { backgroundColor: 'lightblue', color: 'black' } }) },
+    { title: 'EMAIL', dataIndex: 'email', onHeaderCell: () => ({ style: { backgroundColor: 'lightblue', color: 'black' } }) },
+    { title: 'PHONE', dataIndex: 'phone', onHeaderCell: () => ({ style: { backgroundColor: 'lightblue', color: 'black' } }) },
     {
-      title: 'ACTION', key: 'action', render: (_, r) => (
+      title: 'ACTION', key: 'action', onHeaderCell: () => ({ style: { backgroundColor: 'lightblue', color: 'black' } }), render: (_, r) => (
         <Space>
           <Button onClick={() => { setMode('view'); setCurrent(r); setOpen(true) }}>View</Button>
           <Button onClick={() => { setMode('edit'); setCurrent(r); setOpen(true) }}>Update</Button>
@@ -74,7 +74,7 @@ export default function CustomersPage() {
 
   return (
     <Card title="Customers">
-      <Table columns={columns} dataSource={filtered} rowKey="key" pagination={{ pageSize: 6 }} />
+      <Table columns={columns} dataSource={filtered} rowKey="key" pagination={{ pageSize: 6 }} scroll={{ x: true }} />
       <CrudModal open={open} mode={mode} onCancel={() => setOpen(false)} onSave={handleSave} record={current} fields={fields} />
     </Card>
   )
