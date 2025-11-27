@@ -1,0 +1,5 @@
+:root{
+  --ant-primary-color: #1677ff;
+}
+html,body,#root{height:100%;}
+body{margin:0;font-family:Inter, Roboto, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial}
